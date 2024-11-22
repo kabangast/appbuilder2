@@ -6,12 +6,6 @@
 /uploads/*
 !/uploads/.gitkeep
 
-# Android SDK
-/android/
-
-# Debug keystore
-debug.keystore
-
 # PHP
 *.log
 error_log
@@ -25,3 +19,7 @@ error_log
 # OS
 .DS_Store
 Thumbs.db
+
+# Explicitly include these files
+!debug.keystore
+!android/
