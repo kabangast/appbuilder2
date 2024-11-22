@@ -1,0 +1,27 @@
+# Build output
+/build/*
+!/build/.gitkeep
+
+# Uploaded files
+/uploads/*
+!/uploads/.gitkeep
+
+# Android SDK
+/android/
+
+# Debug keystore
+debug.keystore
+
+# PHP
+*.log
+error_log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
