@@ -20,6 +20,14 @@ error_log
 .DS_Store
 Thumbs.db
 
+# Android
+/Android/
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+
 # Explicitly include these files
 !debug.keystore
 !android/
