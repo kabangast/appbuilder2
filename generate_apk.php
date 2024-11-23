@@ -1,26 +1,29 @@
 <?php
 function generateApk($appName, $logoPath) {
     // Enable error reporting
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    if (PHP_OS_FAMILY === "Windows") {
+        // Set error reporting
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+    }
 
     $javaDir = __DIR__ . '/java';
     $buildDir = __DIR__ . '/build';
     
-    // Use Android SDK from the project directory
-    $sdkPath = __DIR__ . '/android/Sdk';
-    $aaptPath = $sdkPath . '/build-tools/30.0.3/aapt.exe';
-    $androidJarPath = $sdkPath . '/platforms/android-34/android.jar';
-    $zipAlignPath = $sdkPath . '/build-tools/30.0.3/zipalign.exe';
-    $apkSignerPath = $sdkPath . '/build-tools/30.0.3/apksigner.bat';
-    $dxJarPath = $sdkPath . '/build-tools/30.0.3/lib/dx.jar';
+    // Use Android SDK tools from C:\Android
+    $androidPath = 'C:/Android';
+    $aaptPath = $androidPath . '/build-tools/30.0.3/aapt.exe';
+    $androidJarPath = $androidPath . '/platforms/android-34/android.jar';
+    $zipAlignPath = $androidPath . '/build-tools/30.0.3/zipalign.exe';
+    $apkSignerPath = $androidPath . '/build-tools/30.0.3/apksigner.bat';
+    $dxJarPath = $androidPath . '/build-tools/30.0.3/lib/dx.jar';
     
     // Debug information
     $debug = [
         'Current Directory' => __DIR__,
         'Java Directory' => $javaDir,
         'Build Directory' => $buildDir,
-        'SDK Path' => $sdkPath,
+        'Android Path' => $androidPath,
         'AAPT Path' => $aaptPath,
         'Android JAR Path' => $androidJarPath,
         'ZipAlign Path' => $zipAlignPath,
